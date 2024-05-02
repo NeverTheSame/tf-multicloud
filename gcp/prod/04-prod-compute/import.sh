@@ -1,0 +1,1 @@
+terraform import google_compute_instance.ad-server projects/production/zones/us-west1-b/instances/ad-server

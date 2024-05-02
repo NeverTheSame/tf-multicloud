@@ -1,0 +1,14 @@
+---
+- name: Install Windows Updates
+  hosts: XXX-Helper
+  tasks:
+    - name: Install all security updates
+      win_updates:
+        category_names:
+          - SecurityUpdates
+        state: installed
+      register: update_result
+
+    - name: Reboot the system if required
+      win_reboot:
+      when: update_result.reboot_required
